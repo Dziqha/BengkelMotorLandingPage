@@ -16,7 +16,7 @@ export default function FotterPage() {
             </div>
             <div className="w-full px-4 mb-12 md:w-1/3">
               <h3 className="font-semibold text-xl text-white mb-5">
-                Kategori Galery
+                Kategori Layanan kami
               </h3>
               <ul className="text-slate-300">
                 <li>
