@@ -79,7 +79,7 @@ export default function FotterPage() {
                     href="#portfolio"
                     className="inline-block text-base hover:text-primary mb-3"
                   >
-                    Galery
+                    Layanan Kami
                   </a>
                 </li>
                 <li>
