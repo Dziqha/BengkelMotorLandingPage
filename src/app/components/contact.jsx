@@ -2,7 +2,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import Select from "react-select"; // Pastikan untuk menginstal react-select jika belum terinstal
-
+import { useInView } from "react-intersection-observer";
+import { motion } from 'framer-motion';
 export default function ContactPage() {
   const formRef = useRef(null);
   const nameRef = useRef(null);
@@ -10,6 +11,7 @@ export default function ContactPage() {
   const motorRef = useRef(null);
   const messageRef = useRef(null);
   const nohpRef = useRef(null);
+  const [ref1, inView1] = useInView({  threshold: 0.2 });
 
   const [selectedCountry, setSelectedCountry] = useState(null);
 
@@ -103,21 +105,35 @@ export default function ContactPage() {
   }, [selectedCountry]);
 
   return (
+    
     <>
-      <section id="contact" className="pt-36 pb-32 dark:bg-slate-800">
+      <section id="contact" ref={ref1} className="pt-36 pb-32 dark:bg-slate-800">
         <div className="container">
           <div className="w-full px-4">
             <div className="max-w-xl mx-auto text-center mb-16">
-              <h4 className="font-semibold text-lg text-primary mb-2">
+            <motion.h4
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="font-semibold text-lg text-primary mb-2"
+              >
                 Contact
-              </h4>
-              <h2 className="font-bold text-dark text-3xl mb-4 md:text-4xl lg:text-5xl dark:text-white">
+              </motion.h4>
+              <motion.h2 
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="font-bold text-dark text-3xl mb-4 md:text-4xl lg:text-5xl dark:text-white">
                 Service Sekarang!
-              </h2>
-              <p className="font-medium text-md text-secondary">
+              </motion.h2>
+              <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+               className="font-medium text-md text-secondary">
                 Segera Pesan! Hubungi kami sekarang untuk melakukan service atau
                 mendapatkan informasi lebih lanjut tentang layanan kami.
-              </p>
+              </motion.p>
             </div>
           </div>
           <form id="reservasi" ref={formRef}>

@@ -2,7 +2,7 @@ export default function FotterPage() {
   return (
     <>
       {/* Fotter start */}
-      <footer className="bg-dark pt-24 pb-12">
+      <footer className="bg-dark pt-24 p-10 pb-12">
         <div className="container">
           <div className="flex flex-wrap">
             <div className="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
